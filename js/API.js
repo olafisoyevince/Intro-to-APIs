@@ -54,7 +54,7 @@ function page(id) {
           <h3 class="displayed-post-title">${element.title}</h3>
           <p class="displayed-post-body">${element.body}</p>
         </div>
-        <a href="API.html"><button type="submit" class="btn btn-light btn-outline-dark">Back</button></a>
+        <a href="index.html"><button type="submit" class="btn btn-light btn-outline-dark">Back</button></a>
       </div>
     `
 
