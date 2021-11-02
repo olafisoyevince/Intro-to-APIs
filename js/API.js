@@ -8,7 +8,7 @@ function getPosts() {
     data.forEach(element => {
       
       html += `
-            <div class="col-md-4 mb-4 text-decoration-none text-dark" onclick=page(${element.id})>
+            <div class="col-md-4 mb-4 text-decoration-none text-dark" onclick=display(${element.id})>
               <div class="card h-100">
                 <div class="card-body">
                   <div class="d-flex justify-content-end">
@@ -26,21 +26,19 @@ function getPosts() {
     });
   })
 }
-
-
 getPosts();
 
 
 
 
-function page(id) {
+function display(id) {
 
-  localStorage.setItem("posts", id);
+  localStorage.setItem("linkedPost", id);
 
-  postId = localStorage.getItem("posts");
-  console.log(postId);
+  routedPost = localStorage.getItem("linkedPost");
+  console.log(routedPost);
 
-  fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+  fetch(`https://jsonplaceholder.typicode.com/posts/${routedPost}`)
   .then(response => response.json())
   .then((element) => {
 
@@ -48,7 +46,7 @@ function page(id) {
     let html = "";
 
     html = `
-      <div class="col-lg-3" onclick="page()">
+      <div class="col-lg-3" onclick="display()">
         <div class="displayed-post-page">
           <h1>${element.id}</h1>
           <h3 class="displayed-post-title">${element.title}</h3>
